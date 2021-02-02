@@ -2,7 +2,7 @@
 
 This is a project being developed as part of my Bachelors thesis aiming to combine thea areas of Machine Learning, Computer Vision and Web Development. The app detects hand gestures from the user and sends the respective HTTP request to LIFX api.
 
-![Alt Text](demo.gif)
+![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
 
 
 
