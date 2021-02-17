@@ -27,4 +27,4 @@ def turn_off():
     response = requests.put(url, data=payload, headers=headers)
     print(response)
 
-turn_on()
+turn_off()

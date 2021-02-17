@@ -15,7 +15,7 @@ TOTALFRAMES_PERSECOND = 10
 
 
 blocking = True
-model = keras.models.load_model("model_res50_5classes.h5")
+model = keras.models.load_model("model_res50_5classes_autocontrast.h5")
 cam = cv2.VideoCapture(0)
 
 if not cam.isOpened():
@@ -56,19 +56,21 @@ while(1):
         averageFrameClass = max(set(classPerFrame), key=classPerFrame.count)
         print(averageFrameClass)
         try:
-            if(averageFrameClass.item()==1 and isOn==0):
+            if(averageFrameClass.item()==0 and isOn==0):
                 print("turn on")
                 is0n = 1
                 isOff = 0
                 turnOn_thread.start() 
                 #turn_on()
                 #logging.info("Thread to TURN ON bulb started")
-            elif(averageFrameClass.item()==3 and isOff==0):
+            elif(averageFrameClass.item()==1 and isOff==0):
                 print("turn off")
                 is0ff = 1
                 is0n = 0
                 #logging.info("Thread to TURN OFF bulb started")
                 turnOff_thread.start()
+            else:
+                print(averageFrameClass)
         except Exception as e:    
             print(e)   
         #print(averageFrameClass)
@@ -86,7 +88,8 @@ while(1):
         #counter+=1
           
         
-         ## add autocontrast
+         ## apply autocontrast to images
+         ## in order to equalize histogram
         img = Image.fromarray(ROI)
         # applying autocontrast method  
         img = ImageOps.autocontrast(img, cutoff = 1, ignore = 1) 
