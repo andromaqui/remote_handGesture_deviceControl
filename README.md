@@ -1,11 +1,12 @@
 # IoT Sign Language Remote Bulb Control
 
-This is a project being developed as part of my Bachelors thesis aiming to combine the areas of Machine Learning, Computer Vision and Web Development.  The app detects hand gestures (the letters B and V of the english alphabet in sign language) from the user and sends the respective HTTP request to LIFX api in order to turn on / off the LIFX mini bulb. The detection of the hand gestures happens by passing each frame of the camera capture in a gesture classifier, trained on 848 images with the ResNet50 model.
-
 My motivation for this project started by my fascination for virtual assistant devices like Alexa and Google Assistant. At the same time, I noticed that there are only a few technologies around, which serve deaf and speech-impaired people. Therefore I decided to experiment with how far an AI could go with understanding sign-language and how this could be incomporated into a virtual assistant device.
 
-- B Letter (Palm gesture): turns on the bulb
-- V letter (V gesture): turns off the bulb
+This is a project being developed as part of my Bachelors thesis aiming to combine the areas of Machine Learning, Computer Vision and Web Development.  The app detects hand gestures from the user and sends the respective HTTP request to LIFX api in order to turn on / off the LIFX mini bulb. The detection of the hand gestures happens by passing each frame of the camera capture in a gesture classifier, trained on 848 images with the ResNet50 model.
+
+
+- Palm gesture (B Letter): turns on the bulb
+- V gesture (V letter): turns off the bulb
 
 ![Alt Text](demo.gif)
 
@@ -26,7 +27,7 @@ This project was built with Python 3. For the training of the classifier, **Tens
 
 ### Training
 
-Part of the utilized dataset originates from the following github page https://github.com/mon95/Sign-Language-and-Static-gesture-recognition-using-sklearn/blob/master/Dataset.zip, where images of the english sign language from 8 participants are contained. From there, images from **4 handgestures** (A, B, U & V) were extracted and the dataset was then extended by 7 additional participants. The final constracted training set contained images from 15 participants in total and for each participant there are 5 classes. 
+Part of the utilized dataset originates from the following github page https://github.com/mon95/Sign-Language-and-Static-gesture-recognition-using-sklearn/blob/master/Dataset.zip, where images of the english sign language from 8 participants are contained. From there, images from **4 handgestures** (A, B, U & V) were extracted and the dataset was then extended by 6 additional participants. The final constracted training set contained images from 14 participants in total and for each participant there are 5 classes. 
 
 - class letter A
 - class letter B
